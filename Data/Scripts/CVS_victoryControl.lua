@@ -25,6 +25,13 @@ function setupPlayers()
 	end 
 end
 
+
+function onPlayerArrive (trigg, other)
+	if other:IsA("Player") then
+		local player = other
+	end
+end
+
 function posPlayers ()
 
 end
