@@ -20,7 +20,7 @@ Objects {
   ChildIds: 10005074784157121906
   ChildIds: 14982843161775482339
   ChildIds: 2085808782992566885
-  ChildIds: 2057877351946382667
+  ChildIds: 11662532731486091867
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -36,16 +36,9 @@ Objects {
   }
 }
 Objects {
-  Id: 2057877351946382667
+  Id: 11662532731486091867
   Name: "SSX_Victoria_time"
   Transform {
-    Location {
-      X: 114.699417
-      Y: 921.349
-      Z: 105.000023
-    }
-    Rotation {
-    }
     Scale {
       X: 1
       Y: 1
@@ -53,23 +46,33 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  UnregisteredParameters {
-  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Folder {
-    IsFilePartition: true
-    FilePartitionName: "SSX_Victoria_time"
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 8624102358886999657
+      value {
+        Overrides {
+          Name: "Name"
+          String: "SSX_Victoria_time"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 114.699417
+            Y: 921.349
+            Z: 105.000023
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 5938793834333683169
+    }
   }
 }
 Objects {
