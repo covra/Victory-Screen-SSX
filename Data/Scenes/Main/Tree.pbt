@@ -18,9 +18,9 @@ Objects {
   ChildIds: 16813558807825262224
   ChildIds: 14713340454944924967
   ChildIds: 10005074784157121906
+  ChildIds: 1436483842674938815
   ChildIds: 14982843161775482339
-  ChildIds: 2085808782992566885
-  ChildIds: 2057877351946382667
+  ChildIds: 55919405342173342
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -36,12 +36,12 @@ Objects {
   }
 }
 Objects {
-  Id: 2057877351946382667
-  Name: "SSX_Victoria_time"
+  Id: 55919405342173342
+  Name: "Humanoid 1 Rig"
   Transform {
     Location {
-      X: 114.699417
-      Y: 921.349
+      X: 104.648262
+      Y: 145.859131
       Z: 105.000023
     }
     Rotation {
@@ -53,8 +53,6 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  UnregisteredParameters {
-  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -67,57 +65,35 @@ Objects {
   EditorIndicatorVisibility {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
-  Folder {
-    IsFilePartition: true
-    FilePartitionName: "SSX_Victoria_time"
-  }
-}
-Objects {
-  Id: 2085808782992566885
-  Name: "Decal Military Symbols 01"
-  Transform {
-    Location {
-      X: 186.411667
-      Y: 842.338257
+  CoreMesh {
+    MeshAsset {
+      Id: 18063604835082062823
     }
-    Rotation {
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
     }
-    Scale {
-      X: 8.8594389
-      Y: 3.24552
-      Z: 1
+    AnimatedMesh {
+      AnimationStance: "unarmed_idle_relaxed"
+      AnimationStancePlaybackRate: 1
+      AnimationStanceShouldLoop: true
+      AnimationPlaybackRateMultiplier: 1
+      PlayOnStartAnimation {
+        PlaybackRate: 1
+      }
+      SkinnedMeshes {
+        Id: 16916435607508201146
+      }
+      SkinnedMeshes {
+        Id: 841534158063459245
+      }
+      SkinnedMeshes {
+        Id: 841534158063459245
+      }
+      SkinnedMeshes {
+        Id: 841534158063459245
+      }
     }
-  }
-  ParentId: 4781671109827199097
-  UnregisteredParameters {
-    Overrides {
-      Name: "bp:Shape Index"
-      Int: 4
-    }
-  }
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Blueprint {
-    BlueprintAsset {
-      Id: 2734698745813932292
-    }
-    TeamSettings {
-    }
-    DecalBP {
-    }
-  }
-  Relevance {
-    Value: "mc:eproxyrelevance:medium"
   }
 }
 Objects {
@@ -167,6 +143,41 @@ Objects {
       }
       BoundsScale: 1
     }
+  }
+}
+Objects {
+  Id: 1436483842674938815
+  Name: "MNG_CannonFight"
+  Transform {
+    Location {
+      X: 92.2469559
+      Y: 72.2235718
+      Z: 54.5081711
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "MNG_CannonFight"
   }
 }
 Objects {
@@ -612,7 +623,6 @@ Objects {
     MinDistance: 300
     MaxDistance: 600
     PositionOffset {
-      Y: 60
     }
     RotationOffset {
     }
@@ -674,7 +684,7 @@ Objects {
         Value: "mc:elookcontrolmode:relative"
       }
       FacingMode {
-        Value: "mc:efacingmode:faceaimwhenactive"
+        Value: "mc:efacingmode:facemovement"
       }
       DefaultRotationRate: 540
       SlideRotationRate: 20
@@ -711,6 +721,7 @@ Objects {
   Name: "Spawn Point"
   Transform {
     Location {
+      Y: -771.033447
       Z: 115
     }
     Rotation {

@@ -1,4 +1,22 @@
 Assets {
+  Id: 18063604835082062823
+  Name: "Humanoid 1 Rig"
+  PlatformAssetType: 25
+  PrimaryAsset {
+    AssetType: "SkeletonAssetRef"
+    AssetId: "npc_gal_wireframe_001_ref"
+  }
+}
+Assets {
+  Id: 16916435607508201146
+  Name: "Humanoid 1 Nalo"
+  PlatformAssetType: 26
+  PrimaryAsset {
+    AssetType: "SkinnedMeshAssetRef"
+    AssetId: "npc_human_gal_head_basic_003_ref"
+  }
+}
+Assets {
   Id: 16910278292812118833
   Name: "Sun Light"
   PlatformAssetType: 6
@@ -32,15 +50,6 @@ Assets {
   PrimaryAsset {
     AssetType: "BlueprintAssetRef"
     AssetId: "CORESKY_Sky"
-  }
-}
-Assets {
-  Id: 2734698745813932292
-  Name: "Decal Military Symbols 01"
-  PlatformAssetType: 14
-  PrimaryAsset {
-    AssetType: "DecalBlueprintAssetRef"
-    AssetId: "bp_decal_military_logo_001_ref"
   }
 }
 Assets {
