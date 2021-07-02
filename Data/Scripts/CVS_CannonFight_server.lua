@@ -1,11 +1,11 @@
-
-
-
-local EQUIPMENT = script:FindAncestorByType('Equipment')
-if not EQUIPMENT:IsA('Equipment') then
-    error(script.name .. " should be part of Equipment object hierarchy.")
-end
-local TRIGGER = script:GetCustomProperty("Trigger"):WaitForObject()
+--require
+local CVS_MNG_API = require(script:GetCustomProperty("CVS_MNG_API") )
+--custom
+local EQUIPMENT = script:GetCustomProperty("equipment"):WaitForObject()
+local ARRIVAL_TRIGG = script:GetCustomProperty("triggArrival"):WaitForObject()
+local ROOT = script:GetCustomProperty("rootParent"):WaitForObject()
+--local
+ ARRIVAL_TRIGG.serverUserData.used = false
 
 function OnBeginOverlap(whichTrigger, other)
 	if other:IsA("Player") then
@@ -21,11 +21,12 @@ function OnEndOverlap(whichTrigger, other)
 end
 
 
-function OnEquipped(equipment, player)
+function OnEquipped(equip, player)
     if Object.IsValid(TRIGGER) then
-        TRIGGER.collision = Collision.FORCE_OFF
+        ARRIVAL_TRIGG.serverUserData.used = true
     end
-    print("equipped")
+    print(script.name.." >> "..player.name.." equipped: "..equip.name)
+    player:SetWorldRotation(ARRIVAL_TRIGG:GetWorldRotation())
 	player.isMovementEnabled = false
 	player.movementControlMode = MovementControlMode.NONE
 end
@@ -36,7 +37,7 @@ function OnUnequipped(equipment)
         if TRIGGER:IsCollidableInHierarchy() then
             Task.Wait(1)
             if Object.IsValid(TRIGGER) then
-                TRIGGER.collision = Collision.INHERIT
+                ARRIVAL_TRIGG.serverUserData.used = false
             end
         else
             equipment:Destroy()
@@ -44,7 +45,7 @@ function OnUnequipped(equipment)
     end
 end
 
-TRIGGER.endOverlapEvent:Connect(OnEndOverlap)
-TRIGGER.interactedEvent:Connect(OnInteracted)
+ARRIVAL_TRIGG.endOverlapEvent:Connect(OnEndOverlap)
+ARRIVAL_TRIGG.beginOverlapEvent:Connect(OnBeginOverlap)
 EQUIPMENT.equippedEvent:Connect(OnEquipped)
 EQUIPMENT.unequippedEvent:Connect(OnUnequipped)

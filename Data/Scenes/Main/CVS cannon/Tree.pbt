@@ -1,8 +1,8 @@
 Name: "CVS cannon"
 RootId: 17847487207611684861
 Objects {
-  Id: 14820051766047507137
-  Name: "ArtGeo"
+  Id: 12406826807419895021
+  Name: "ClientContext"
   Transform {
     Location {
     }
@@ -15,10 +15,10 @@ Objects {
     }
   }
   ParentId: 17847487207611684861
-  ChildIds: 2235281781124563086
-  ChildIds: 8982629970230822035
+  ChildIds: 4776049974024852207
+  ChildIds: 5465931692864345774
   Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
+    Value: "mc:ecollisionsetting:forceoff"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
@@ -29,13 +29,12 @@ Objects {
   EditorIndicatorVisibility {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
-  Folder {
-    IsGroup: true
+  NetworkContext {
   }
 }
 Objects {
-  Id: 8982629970230822035
-  Name: "Body"
+  Id: 5465931692864345774
+  Name: "CVS_CannonFight_client"
   Transform {
     Location {
     }
@@ -47,89 +46,74 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 14820051766047507137
-  ChildIds: 12087656344274295722
-  ChildIds: 14370300468163934439
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Folder {
-    IsGroup: true
-  }
-}
-Objects {
-  Id: 14370300468163934439
-  Name: "Cube - Bottom-Aligned"
-  Transform {
-    Location {
-      X: -19.141243
-      Y: -67.7168808
-      Z: -75.8919144
-    }
-    Rotation {
-    }
-    Scale {
-      X: 0.423073292
-      Y: 0.647605836
-      Z: 0.654863834
-    }
-  }
-  ParentId: 8982629970230822035
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  CoreMesh {
-    MeshAsset {
-      Id: 198353679974341757
-    }
-    Teams {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
-    }
-    StaticMesh {
-      Physics {
-        Mass: 100
-        LinearDamping: 0.01
+  ParentId: 12406826807419895021
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:camCannon"
+      ObjectReference {
+        SelfId: 4776049974024852207
       }
-      BoundsScale: 1
+    }
+    Overrides {
+      Name: "cs:triggArrival"
+      ObjectReference {
+        SelfId: 3147251956075351692
+      }
+    }
+    Overrides {
+      Name: "cs:CVS_MNG_API"
+      AssetReference {
+        Id: 649759168430960580
+      }
+    }
+    Overrides {
+      Name: "cs:Tube"
+      ObjectReference {
+        SelfId: 1787956779515491502
+      }
+    }
+    Overrides {
+      Name: "cs:Body"
+      ObjectReference {
+        SelfId: 6897677868981218623
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 16050701322424826314
     }
   }
 }
 Objects {
-  Id: 12087656344274295722
-  Name: "Cube"
+  Id: 4776049974024852207
+  Name: "cam_cannon"
   Transform {
     Location {
-      Y: -53.0969238
-      Z: -53.7030945
+      X: -233.141602
+      Z: 135.402893
     }
     Rotation {
     }
     Scale {
       X: 1
-      Y: 1.90558648
-      Z: 0.324881345
+      Y: 1
+      Z: 1
     }
   }
-  ParentId: 8982629970230822035
+  ParentId: 12406826807419895021
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -140,28 +124,27 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
+    Value: "mc:eindicatorvisibility:alwaysvisible"
   }
-  CoreMesh {
-    MeshAsset {
-      Id: 12095835209017042614
+  Camera {
+    MinDistance: 300
+    MaxDistance: 600
+    PositionOffset {
     }
-    Teams {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
+    RotationOffset {
     }
-    StaticMesh {
-      Physics {
-        Mass: 100
-        LinearDamping: 0.01
-      }
-      BoundsScale: 1
+    FieldOfView: 110
+    ViewWidth: 1200
+    RotationMode {
+      Value: "mc:erotationmode:fixed"
     }
+    MinPitch: -89
+    MaxPitch: 89
   }
 }
 Objects {
-  Id: 2235281781124563086
-  Name: "Tube"
+  Id: 17281173968427435131
+  Name: "Cannon"
   Transform {
     Location {
     }
@@ -173,8 +156,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 14820051766047507137
-  ChildIds: 14954774499780541255
+  ParentId: 17847487207611684861
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -188,52 +170,8 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   Folder {
-    IsGroup: true
-  }
-}
-Objects {
-  Id: 14954774499780541255
-  Name: "tube"
-  Transform {
-    Location {
-    }
-    Rotation {
-      Pitch: -64.5037537
-    }
-    Scale {
-      X: 0.827466309
-      Y: 0.827465773
-      Z: 3.21715426
-    }
-  }
-  ParentId: 2235281781124563086
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  CoreMesh {
-    MeshAsset {
-      Id: 14929349070210941623
-    }
-    Teams {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
-    }
-    StaticMesh {
-      Physics {
-        Mass: 100
-        LinearDamping: 0.01
-      }
-      BoundsScale: 1
-    }
+    IsFilePartition: true
+    FilePartitionName: "Cannon"
   }
 }
 Objects {
@@ -253,6 +191,7 @@ Objects {
   ParentId: 17847487207611684861
   ChildIds: 535840574475553031
   ChildIds: 2488578057978913975
+  WantsNetworking: true
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -287,6 +226,7 @@ Objects {
     }
   }
   ParentId: 18109148863774394375
+  WantsNetworking: true
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -365,6 +305,7 @@ Objects {
     }
   }
   ParentId: 18109148863774394375
+  WantsNetworking: true
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -429,8 +370,132 @@ Objects {
   }
 }
 Objects {
-  Id: 3147251956075351692
-  Name: "triggArrival"
+  Id: 10110154431342997383
+  Name: "CVS_CannonFight_control"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17847487207611684861
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:CVS_MNG_API"
+      AssetReference {
+        Id: 649759168430960580
+      }
+    }
+    Overrides {
+      Name: "cs:Tube"
+      ObjectReference {
+        SelfId: 1787956779515491502
+      }
+    }
+    Overrides {
+      Name: "cs:Body"
+      ObjectReference {
+        SelfId: 6897677868981218623
+      }
+    }
+    Overrides {
+      Name: "cs:root"
+      ObjectReference {
+        SelfId: 1436483842674938815
+      }
+    }
+    Overrides {
+      Name: "cs:triggArrival"
+      ObjectReference {
+        SelfId: 3147251956075351692
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 13301926731211398548
+    }
+  }
+}
+Objects {
+  Id: 16517261544096724644
+  Name: "CVS_CannonFight_server"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17847487207611684861
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:equipment"
+      ObjectReference {
+        SelfId: 18109148863774394375
+      }
+    }
+    Overrides {
+      Name: "cs:triggArrival"
+      ObjectReference {
+        SelfId: 3147251956075351692
+      }
+    }
+    Overrides {
+      Name: "cs:rootParent"
+      ObjectReference {
+        SelfId: 1436483842674938815
+      }
+    }
+    Overrides {
+      Name: "cs:CVS_MNG_API"
+      AssetReference {
+        Id: 649759168430960580
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 4178690744779833161
+    }
+  }
+}
+Objects {
+  Id: 1987998909836764732
+  Name: "StaticContext"
   Transform {
     Location {
       X: -1.13396454
@@ -446,6 +511,40 @@ Objects {
     }
   }
   ParentId: 17847487207611684861
+  ChildIds: 3147251956075351692
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+    Type: RuntimeStatic
+  }
+}
+Objects {
+  Id: 3147251956075351692
+  Name: "triggArrival"
+  Transform {
+    Location {
+      X: 7.62939453e-06
+      Y: -7.62939453e-06
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 1987998909836764732
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

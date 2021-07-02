@@ -18,9 +18,10 @@ Objects {
   ChildIds: 16813558807825262224
   ChildIds: 14713340454944924967
   ChildIds: 10005074784157121906
-  ChildIds: 1436483842674938815
+  ChildIds: 10462247734399472439
   ChildIds: 14982843161775482339
   ChildIds: 55919405342173342
+  ChildIds: 2994385871401063076
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -33,6 +34,38 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Folder {
+  }
+}
+Objects {
+  Id: 2994385871401063076
+  Name: "Message Banner"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 11168525500713847895
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Message Banner"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 13339084999025262837
+    }
   }
 }
 Objects {
@@ -146,12 +179,12 @@ Objects {
   }
 }
 Objects {
-  Id: 1436483842674938815
-  Name: "MNG_CannonFight"
+  Id: 10462247734399472439
+  Name: "GAME FRAMEWORK"
   Transform {
     Location {
-      X: 92.2469559
-      Y: 72.2235718
+      X: -95.7397919
+      Y: -209.586945
       Z: 54.5081711
     }
     Rotation {
@@ -177,7 +210,7 @@ Objects {
   }
   Folder {
     IsFilePartition: true
-    FilePartitionName: "MNG_CannonFight"
+    FilePartitionName: "GAME FRAMEWORK"
   }
 }
 Objects {

@@ -1,6 +1,6 @@
 Assets {
-  Id: 9228308278932849296
-  Name: "CVS_cannon_server"
+  Id: 13301926731211398548
+  Name: "CVS_CannonFight_control"
   PlatformAssetType: 3
   TextAsset {
   }
