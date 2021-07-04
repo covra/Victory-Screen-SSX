@@ -17,6 +17,15 @@ Assets {
   }
 }
 Assets {
+  Id: 931609851782034576
+  Name: "Edgeline Wavy Object Fade Advanced"
+  PlatformAssetType: 2
+  PrimaryAsset {
+    AssetType: "MaterialAssetRef"
+    AssetId: "fxma_add_edgeline_local"
+  }
+}
+Assets {
   Id: 198353679974341757
   Name: "Cube - Bottom-Aligned"
   PlatformAssetType: 1

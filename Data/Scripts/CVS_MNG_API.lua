@@ -20,10 +20,22 @@ local tableKeyBindings = {
 												}
 
 						}
+						
+local tableImpacts = {
+						["casco"] = 5,
+						["palo"] = 10,
+						["cabina"] = 20,
+						["vela"] = 8,
+						["guia"] = 35,
+					}
 local camOverrideTime = 3
+local timeShoot = 3
 
-
-
+local angleRatioMov = {
+						["v"] = Rotation.New(0,3,0),
+						["h"] = Rotation.New(0,0,5),
+						["t"] = 0.3
+						}
 ---------------------------------------------------------
 
 
@@ -46,8 +58,20 @@ function CVS_MNG_API.getKeyBind (game, code)
 	return keyGame [code]
 end
 
+function CVS_MNG_API.angleRatio(code)
+	return angleRatioMov [code]
+end
+
 function CVS_MNG_API.getTimeCamOverride()
 	return camOverrideTime
+end
+
+function CVS_MNG_API.getTimeShoot() 
+	return timeShoot
+end
+
+function CVS_MNG_API.getDamageShip(strArea)
+	return tableImpacts [strArea]
 end
 
 function getNameGame(key)

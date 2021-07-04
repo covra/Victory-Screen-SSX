@@ -17,6 +17,7 @@ Objects {
   ParentId: 17847487207611684861
   ChildIds: 4776049974024852207
   ChildIds: 5465931692864345774
+  ChildIds: 2208733089164849046
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -30,6 +31,287 @@ Objects {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
   }
   NetworkContext {
+  }
+}
+Objects {
+  Id: 2208733089164849046
+  Name: "UI Container"
+  Transform {
+    Location {
+      X: -92.2469635
+      Y: -72.2235718
+      Z: -54.5081711
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12406826807419895021
+  ChildIds: 3080802763791312861
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Canvas {
+      ContentType {
+        Value: "mc:ecanvascontenttype:dynamic"
+      }
+      Opacity: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 3080802763791312861
+  Name: "Pn_exit"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 2208733089164849046
+  ChildIds: 8836198039911142628
+  ChildIds: 3825493693719727667
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 200
+    Height: 100
+    UIX: -38.3096924
+    UIY: -42.84729
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Panel {
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:bottomright"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:bottomright"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 3825493693719727667
+  Name: "exit"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 3080802763791312861
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: -10
+    Height: -10
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    AddSizeToParentIfUsingParentSize: true
+    UseParentWidth: true
+    UseParentHeight: true
+    Button {
+      Label: "EXIT"
+      FontColor {
+        A: 1
+      }
+      FontSize: 40
+      ButtonColor {
+        R: 1
+        G: 0.900927126
+        B: 0.56
+        A: 1
+      }
+      HoveredColor {
+        R: 1
+        G: 1
+        B: 1
+        A: 1
+      }
+      PressedColor {
+        R: 1
+        G: 1
+        B: 1
+        A: 1
+      }
+      DisabledColor {
+        R: 1
+        G: 1
+        B: 1
+        A: 1
+      }
+      Brush {
+        Id: 841534158063459245
+      }
+      IsButtonEnabled: true
+      ClickMode {
+        Value: "mc:ebuttonclickmode:default"
+      }
+      Font {
+        Id: 11336346532215892341
+      }
+      Justification {
+        Value: "mc:etextjustify:center"
+      }
+      VerticalJustification {
+        Value: "mc:everticaljustification:center"
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 8836198039911142628
+  Name: "UI Image"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 3080802763791312861
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 200
+    Height: 200
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    UseParentWidth: true
+    UseParentHeight: true
+    Image {
+      Brush {
+      }
+      Color {
+        A: 0.661
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+    }
   }
 }
 Objects {
@@ -69,13 +351,25 @@ Objects {
     Overrides {
       Name: "cs:Tube"
       ObjectReference {
-        SelfId: 1787956779515491502
+        SelfId: 2235281781124563086
       }
     }
     Overrides {
       Name: "cs:Body"
       ObjectReference {
-        SelfId: 6897677868981218623
+        SelfId: 8982629970230822035
+      }
+    }
+    Overrides {
+      Name: "cs:btn_exit"
+      ObjectReference {
+        SelfId: 3825493693719727667
+      }
+    }
+    Overrides {
+      Name: "cs:firePoint_reference"
+      ObjectReference {
+        SelfId: 12015899448698466681
       }
     }
   }
@@ -370,8 +664,82 @@ Objects {
   }
 }
 Objects {
-  Id: 10110154431342997383
-  Name: "CVS_CannonFight_control"
+  Id: 1987998909836764732
+  Name: "StaticContext"
+  Transform {
+    Location {
+      X: -1.13396454
+      Y: -64.8164139
+      Z: -25.3518906
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17847487207611684861
+  ChildIds: 3147251956075351692
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+    Type: RuntimeStatic
+  }
+}
+Objects {
+  Id: 3147251956075351692
+  Name: "triggArrival"
+  Transform {
+    Location {
+      Y: -9.4947052
+      Z: 26.7481918
+    }
+    Rotation {
+    }
+    Scale {
+      X: 0.760923624
+      Y: 0.633232474
+      Z: 0.641997457
+    }
+  }
+  ParentId: 1987998909836764732
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Trigger {
+    TeamSettings {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    TriggerShape_v2 {
+      Value: "mc:etriggershape:box"
+    }
+  }
+}
+Objects {
+  Id: 8599624685637444561
+  Name: "CVS_CannonFight_shoot"
   Transform {
     Location {
     }
@@ -386,33 +754,21 @@ Objects {
   ParentId: 17847487207611684861
   UnregisteredParameters {
     Overrides {
-      Name: "cs:CVS_MNG_API"
-      AssetReference {
-        Id: 649759168430960580
-      }
-    }
-    Overrides {
-      Name: "cs:Tube"
-      ObjectReference {
-        SelfId: 1787956779515491502
-      }
-    }
-    Overrides {
-      Name: "cs:Body"
-      ObjectReference {
-        SelfId: 6897677868981218623
-      }
-    }
-    Overrides {
       Name: "cs:root"
       ObjectReference {
         SelfId: 1436483842674938815
       }
     }
     Overrides {
-      Name: "cs:triggArrival"
+      Name: "cs:CVS_MNG_API"
+      AssetReference {
+        Id: 649759168430960580
+      }
+    }
+    Overrides {
+      Name: "cs:cannon"
       ObjectReference {
-        SelfId: 3147251956075351692
+        SelfId: 10093136004244386101
       }
     }
   }
@@ -430,7 +786,7 @@ Objects {
   }
   Script {
     ScriptAsset {
-      Id: 13301926731211398548
+      Id: 13126139361200454742
     }
   }
 }
@@ -490,80 +846,6 @@ Objects {
   Script {
     ScriptAsset {
       Id: 4178690744779833161
-    }
-  }
-}
-Objects {
-  Id: 1987998909836764732
-  Name: "StaticContext"
-  Transform {
-    Location {
-      X: -1.13396454
-      Y: -64.8164139
-      Z: -25.3518906
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 17847487207611684861
-  ChildIds: 3147251956075351692
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  NetworkContext {
-    Type: RuntimeStatic
-  }
-}
-Objects {
-  Id: 3147251956075351692
-  Name: "triggArrival"
-  Transform {
-    Location {
-      X: 7.62939453e-06
-      Y: -7.62939453e-06
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 1987998909836764732
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Trigger {
-    TeamSettings {
-      IsTeamCollisionEnabled: true
-      IsEnemyCollisionEnabled: true
-    }
-    TriggerShape_v2 {
-      Value: "mc:etriggershape:box"
     }
   }
 }

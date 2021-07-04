@@ -32,8 +32,9 @@ function OnInteracted(trigg, other)
 		local player = other
 		if Object.IsValid( ARRIVAL_TRIGG ) then 
 			if not ARRIVAL_TRIGG.serverUserData.used then 
-				player:SetWorldPosition(ARRIVAL_TRIGG:GetWorldPosition())
+				player:SetWorldPosition(ARRIVAL_TRIGG:GetWorldPosition())				
 				player.serverUserData.currentGame = NAME_FOR.name
+				ARRIVAL_TRIGG.serverUserData.id = ASK_TRIGG:GetReference()
 				table.insert(_G.MNG, {player, time()})
 				local bannerMessage = CVS_MNG_API.getUI_CGI ("askGame",NAME_FOR.name)
 				Events.BroadcastToPlayer(player, "BannerMessage",bannerMessage.message, bannerMessage.duration)

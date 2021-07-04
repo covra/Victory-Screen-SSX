@@ -22,6 +22,9 @@ Objects {
   ChildIds: 14982843161775482339
   ChildIds: 55919405342173342
   ChildIds: 2994385871401063076
+  ChildIds: 4554332353232769123
+  ChildIds: 730412797911825567
+  ChildIds: 13083786228966297552
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -34,6 +37,168 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Folder {
+  }
+}
+Objects {
+  Id: 13083786228966297552
+  Name: "CVS_LockUnlock_Cursor"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 1065865173484349473
+      value {
+        Overrides {
+          Name: "Anchor"
+          Enum {
+            Value: "mc:euianchor:bottomleft"
+          }
+        }
+        Overrides {
+          Name: "Dock"
+          Enum {
+            Value: "mc:euianchor:bottomleft"
+          }
+        }
+      }
+    }
+    ParameterOverrideMap {
+      key: 2116083638468410011
+      value {
+        Overrides {
+          Name: "UIX"
+          Float: 54.0841522
+        }
+        Overrides {
+          Name: "UIY"
+          Float: -36.0784302
+        }
+      }
+    }
+    ParameterOverrideMap {
+      key: 7749902321506493949
+      value {
+        Overrides {
+          Name: "UIY"
+          Float: 5.76477432
+        }
+      }
+    }
+    ParameterOverrideMap {
+      key: 16398603414045827718
+      value {
+        Overrides {
+          Name: "Name"
+          String: "CVS_LockUnlock_Cursor"
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 5499862207320953173
+    }
+  }
+}
+Objects {
+  Id: 730412797911825567
+  Name: "Advanced Assault Rifle"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  WantsNetworking: true
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 13859206571032135798
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Advanced Assault Rifle"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            Y: -574.93457
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 8597925098878502928
+    }
+  }
+}
+Objects {
+  Id: 4554332353232769123
+  Name: "CVS_cannonBall"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  WantsNetworking: true
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 7632005326267139494
+      value {
+        Overrides {
+          Name: "Name"
+          String: "CVS_cannonBall"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+            X: 250.017059
+            Y: 69.5579529
+            Z: 131.966461
+          }
+        }
+      }
+    }
+    ParameterOverrideMap {
+      key: 14895512849526585781
+      value {
+        Overrides {
+          Name: "Position"
+          Vector {
+            Y: -56.2598648
+          }
+        }
+      }
+    }
+    TemplateAsset {
+      Id: 13336818853561124527
+    }
   }
 }
 Objects {

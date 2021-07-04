@@ -1,51 +1,93 @@
 --require
 local CVS_MNG_API = require(script:GetCustomProperty("CVS_MNG_API") )
 --custom
-local EQUIPMENT = script:GetCustomProperty("equipment"):WaitForObject()
-local ARRIVAL_TRIGG = script:GetCustomProperty("triggArrival"):WaitForObject()
+local EQUIPMENT_1 = script:GetCustomProperty("equipment_1"):WaitForObject()
+local EQUIPMENT_2 = script:GetCustomProperty("equipment_2"):WaitForObject()
+local ARRIVAL_TRIGG_1 = script:GetCustomProperty("triggArrival_1"):WaitForObject()
+local ARRIVAL_TRIGG_2 = script:GetCustomProperty("triggArrival_2"):WaitForObject()
 local ROOT = script:GetCustomProperty("rootParent"):WaitForObject()
---local
- ARRIVAL_TRIGG.serverUserData.used = false
+local CANNON_1 = script:GetCustomProperty("cannon_1"):WaitForObject()
+local CANNON_2 = script:GetCustomProperty("cannon_2"):WaitForObject()
 
-function OnBeginOverlap(whichTrigger, other)
+--local
+ ARRIVAL_TRIGG_1.serverUserData.used = false
+
+function OnBeginOverlap(trigg, other)	
 	if other:IsA("Player") then
-		local player = other
-		EQUIPMENT:Equip(player)
+		local player = other		
+		Events.BroadcastToPlayer(player,"CNN_playerArr",player, true)
+		Task.Wait()
+		EQUIPMENT_1:Equip(player)	
 	end
 end
 
-function OnEndOverlap(whichTrigger, other)
+function OnEndOverlap(trigg, other)
 	if other:IsA("Player") then
-		
+		local player = other		
+		Task.Wait()
+		Events.BroadcastToPlayer(player,"CNN_playerArr",player, false)
 	end
 end
 
 
 function OnEquipped(equip, player)
-    if Object.IsValid(TRIGGER) then
-        ARRIVAL_TRIGG.serverUserData.used = true
+    if Object.IsValid(ARRIVAL_TRIGG_1) then
+        ARRIVAL_TRIGG_1.serverUserData.used = false
     end
     print(script.name.." >> "..player.name.." equipped: "..equip.name)
-    player:SetWorldRotation(ARRIVAL_TRIGG:GetWorldRotation())
+    script.serverUserData.cannonOwner = player
+    CANNON_1.serverUserData.owner = player
+    player:SetWorldRotation(ARRIVAL_TRIGG_1:GetWorldRotation())
 	player.isMovementEnabled = false
 	player.movementControlMode = MovementControlMode.NONE
+	
+				-----------------------------
+				Task.Spawn(function() 
+					while true do 
+						player:AddResource("c_Balls",1)
+						Task.Wait(5)
+					end 
+				end)
+				----------------------------------
 end
 
 
-function OnUnequipped(equipment)
-    if Object.IsValid(equipment) and Object.IsValid(TRIGGER) then
-        if TRIGGER:IsCollidableInHierarchy() then
+function OnUnequipped(equip, player)
+	print("desequipando: ", equip , " a "..player.name)
+    if Object.IsValid(equip) and Object.IsValid(ARRIVAL_TRIGG_1) then
+    	player.isMovementEnabled = true
+		player.movementControlMode = MovementControlMode.LOOK_RELATIVE
+		script.serverUserData.cannonOwner = nil
+		if ARRIVAL_TRIGG_1.serverUserData.id then 
+    		local askTrigger = ARRIVAL_TRIGG_1.serverUserData.id:GetObject()    	
+    		player:SetWorldPosition(askTrigger:GetWorldPosition())
+    	end
+        if ARRIVAL_TRIGG_1:IsCollidableInHierarchy() then
             Task.Wait(1)
-            if Object.IsValid(TRIGGER) then
+            if Object.IsValid(ARRIVAL_TRIGG_1) then
                 ARRIVAL_TRIGG.serverUserData.used = false
             end
         else
-            equipment:Destroy()
+            
         end
     end
 end
 
-ARRIVAL_TRIGG.endOverlapEvent:Connect(OnEndOverlap)
-ARRIVAL_TRIGG.beginOverlapEvent:Connect(OnBeginOverlap)
-EQUIPMENT.equippedEvent:Connect(OnEquipped)
-EQUIPMENT.unequippedEvent:Connect(OnUnequipped)
+
+ARRIVAL_TRIGG_1.endOverlapEvent:Connect(OnEndOverlap)
+ARRIVAL_TRIGG_1.beginOverlapEvent:Connect(OnBeginOverlap)
+ARRIVAL_TRIGG_2.endOverlapEvent:Connect(OnEndOverlap)
+ARRIVAL_TRIGG_2.beginOverlapEvent:Connect(OnBeginOverlap)
+EQUIPMENT_1.equippedEvent:Connect(OnEquipped)
+EQUIPMENT_1.unequippedEvent:Connect(OnUnequipped)
+EQUIPMENT_2.equippedEvent:Connect(OnEquipped)
+EQUIPMENT_2.unequippedEvent:Connect(OnUnequipped)
+Events.ConnectForPlayer ("callExit", function(player)  
+		print(script.name.." >> "..player.name.." request exit cannon")
+		local eqPlayer = player:GetEquipment()
+		for _,eq in pairs (eqPlayer) do 
+			if eq == EQUIPMENT_1 or eq == EQUIPMENT_2 then 
+				eq:Unequip()
+			end
+		end 
+	end)
