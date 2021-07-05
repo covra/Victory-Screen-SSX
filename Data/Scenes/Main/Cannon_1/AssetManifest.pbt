@@ -8,24 +8,6 @@ Assets {
   }
 }
 Assets {
-  Id: 14854415296157893948
-  Name: "Basic Explosion VFX"
-  PlatformAssetType: 8
-  PrimaryAsset {
-    AssetType: "VfxBlueprintAssetRef"
-    AssetId: "fxbp_explosion"
-  }
-}
-Assets {
-  Id: 13744071918292149447
-  Name: "Epic Explosions Set 01 SFX"
-  PlatformAssetType: 10
-  PrimaryAsset {
-    AssetType: "AudioBlueprintAssetRef"
-    AssetId: "sfxabp_epic_explosion_set_01_ref"
-  }
-}
-Assets {
   Id: 12095835209017042614
   Name: "Cube"
   PlatformAssetType: 1

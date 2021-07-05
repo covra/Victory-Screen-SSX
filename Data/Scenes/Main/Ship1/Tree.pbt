@@ -104,7 +104,7 @@ Objects {
 }
 Objects {
   Id: 18109148863774394375
-  Name: "cannonEq"
+  Name: "cannonEq_1"
   Transform {
     Location {
     }

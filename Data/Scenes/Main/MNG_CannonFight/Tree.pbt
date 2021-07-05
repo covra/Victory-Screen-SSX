@@ -82,9 +82,9 @@ Objects {
     }
   }
   ParentId: 1436483842674938815
+  ChildIds: 5465931692864345774
   ChildIds: 4776049974024852207
   ChildIds: 2131470595822350348
-  ChildIds: 5465931692864345774
   ChildIds: 2208733089164849046
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
@@ -383,83 +383,6 @@ Objects {
   }
 }
 Objects {
-  Id: 5465931692864345774
-  Name: "CVS_CannonFight_client"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 12406826807419895021
-  UnregisteredParameters {
-    Overrides {
-      Name: "cs:camCannon"
-      ObjectReference {
-        SelfId: 4776049974024852207
-      }
-    }
-    Overrides {
-      Name: "cs:triggArrival"
-      ObjectReference {
-        SelfId: 3147251956075351692
-      }
-    }
-    Overrides {
-      Name: "cs:CVS_MNG_API"
-      AssetReference {
-        Id: 649759168430960580
-      }
-    }
-    Overrides {
-      Name: "cs:Tube"
-      ObjectReference {
-        SelfId: 2235281781124563086
-      }
-    }
-    Overrides {
-      Name: "cs:Body"
-      ObjectReference {
-        SelfId: 8982629970230822035
-      }
-    }
-    Overrides {
-      Name: "cs:btn_exit"
-      ObjectReference {
-        SelfId: 3825493693719727667
-      }
-    }
-    Overrides {
-      Name: "cs:firePoint_reference"
-      ObjectReference {
-        SelfId: 12015899448698466681
-      }
-    }
-  }
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Script {
-    ScriptAsset {
-      Id: 16050701322424826314
-    }
-  }
-}
-Objects {
   Id: 2131470595822350348
   Name: "cam_cannon_2"
   Transform {
@@ -499,6 +422,7 @@ Objects {
     }
     RotationOffset {
       Pitch: -5
+      Yaw: 180
     }
     FieldOfView: 110
     ViewWidth: 1200
@@ -558,6 +482,113 @@ Objects {
   }
 }
 Objects {
+  Id: 5465931692864345774
+  Name: "CVS_CannonFight_client"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 12406826807419895021
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:camCannon_1"
+      ObjectReference {
+        SelfId: 4776049974024852207
+      }
+    }
+    Overrides {
+      Name: "cs:triggArrival_1"
+      ObjectReference {
+        SelfId: 3147251956075351692
+      }
+    }
+    Overrides {
+      Name: "cs:CVS_MNG_API"
+      AssetReference {
+        Id: 649759168430960580
+      }
+    }
+    Overrides {
+      Name: "cs:Tube_1"
+      ObjectReference {
+        SelfId: 2235281781124563086
+      }
+    }
+    Overrides {
+      Name: "cs:Body_1"
+      ObjectReference {
+        SelfId: 8982629970230822035
+      }
+    }
+    Overrides {
+      Name: "cs:btn_exit"
+      ObjectReference {
+        SelfId: 3825493693719727667
+      }
+    }
+    Overrides {
+      Name: "cs:firePoint_reference_1"
+      ObjectReference {
+        SelfId: 12015899448698466681
+      }
+    }
+    Overrides {
+      Name: "cs:camCannon_2"
+      ObjectReference {
+        SelfId: 2131470595822350348
+      }
+    }
+    Overrides {
+      Name: "cs:triggArrival_2"
+      ObjectReference {
+        SelfId: 11120849105794182289
+      }
+    }
+    Overrides {
+      Name: "cs:Tube_2"
+      ObjectReference {
+        SelfId: 10811696060990639133
+      }
+    }
+    Overrides {
+      Name: "cs:Body_2"
+      ObjectReference {
+        SelfId: 17192573910574549175
+      }
+    }
+    Overrides {
+      Name: "cs:firePoint_reference_2"
+      ObjectReference {
+        SelfId: 6629059952183201708
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 16050701322424826314
+    }
+  }
+}
+Objects {
   Id: 1987998909836764732
   Name: "StaticContext"
   Transform {
@@ -603,6 +634,7 @@ Objects {
       Z: -9.71014404
     }
     Rotation {
+      Yaw: 180
     }
     Scale {
       X: 0.760923624
@@ -691,7 +723,7 @@ Objects {
     Overrides {
       Name: "cs:root"
       ObjectReference {
-        SelfId: 1436483842674938815
+        SelfId: 10462247734399472439
       }
     }
     Overrides {
@@ -701,21 +733,9 @@ Objects {
       }
     }
     Overrides {
-      Name: "cs:cannon"
+      Name: "cs:cannon_1"
       ObjectReference {
         SelfId: 10093136004244386101
-      }
-    }
-    Overrides {
-      Name: "cs:shootSFX"
-      ObjectReference {
-        SelfId: 2710114412148181262
-      }
-    }
-    Overrides {
-      Name: "cs:shootVFX"
-      ObjectReference {
-        SelfId: 14029241172868829918
       }
     }
     Overrides {
@@ -734,6 +754,24 @@ Objects {
       Name: "cs:CVS_FX_impact_other"
       AssetReference {
         Id: 1279284230486934178
+      }
+    }
+    Overrides {
+      Name: "cs:cannon_2"
+      ObjectReference {
+        SelfId: 11457441203331491990
+      }
+    }
+    Overrides {
+      Name: "cs:cannonEq2"
+      ObjectReference {
+        SelfId: 8754016827882957672
+      }
+    }
+    Overrides {
+      Name: "cs:CVS_FX_shoot"
+      AssetReference {
+        Id: 3857501386264807816
       }
     }
   }

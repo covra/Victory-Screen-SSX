@@ -37,14 +37,18 @@ function OnInteracted(trigg, other)
 		local player = other
 		for _,currentSlot in pairs (localSlots)  do 
 			if currentSlot.slot.serverUserData.owned == nil then 
-				currentSlot.player = player
+				currentSlot.slot.serverUserData.owned = player
+				localSlots.player = player
 				currentSlot.slot.serverUserData.id = ASK_TRIGG:GetReference()
-				player:SetWorldPosition(currentSlot.slot:GetWorldPosition())				
-				player.serverUserData.currentGame = NAME_FOR.name				
+				local assignedSlot = currentSlot.slot
+				player:SetWorldPosition(assignedSlot:GetWorldPosition())				
+				player.serverUserData.currentGame = NAME_FOR.name	
+				print(script.name.." >> "..player.name.." was assigned to slot: ",assignedSlot)
 				table.insert(_G.MNG, {player, time()})
 				local bannerMessage = CVS_MNG_API.getUI_CGI ("askGame",NAME_FOR.name)
 				Events.BroadcastToPlayer(player, "BannerMessage",bannerMessage.message, bannerMessage.duration)
 				isAssigned = true
+				break
 			end 
 		end 
 		if not isAssigned then 

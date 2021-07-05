@@ -2,12 +2,12 @@
 local CVS_MNG_API = require(script:GetCustomProperty("CVS_MNG_API") )
 --custom
 local ROOT = script:GetCustomProperty("root"):WaitForObject()
-local CANNON = script:GetCustomProperty("cannon"):WaitForObject()
+local CANNON_1 = script:GetCustomProperty("cannon_1"):WaitForObject()
+local CANNON_2 = script:GetCustomProperty("cannon_1"):WaitForObject()
 local CANNON1_EQ = script:GetCustomProperty("cannonEq1"):WaitForObject()
-
+local CANNON2_EQ = script:GetCustomProperty("cannonEq2"):WaitForObject()
 --assets
-local SFX_SHOOT = script:GetCustomProperty("shootSFX"):WaitForObject()
-local VFX_SHOOT = script:GetCustomProperty("shootVFX"):WaitForObject()
+local FX_SHOOT = script:GetCustomProperty("CVS_FX_shoot")
 local FX_IMPACT_SHIP = script:GetCustomProperty("CVS_FX_impact_ship")
 local FX_IMPACT_OTHER = script:GetCustomProperty("CVS_FX_impact_other")
 
@@ -15,15 +15,26 @@ local FX_IMPACT_OTHER = script:GetCustomProperty("CVS_FX_impact_other")
 
 function onCannonShoot (player,cannonNumber, refPos, refVector)
 	--print(script.name.." >> cannon num "..tostring(cannonNumber).." shooted by "..player.name, refPos, refVector)
+	local CANNON
+	if cannonNumber == 1 then  
+		CANNON = CANNON_1
+	elseif cannonNumber == 2 then 
+		CANNON = CANNON_2
+	end 
 	CANNON:SetWorldPosition(refPos)
 	CANNON:SetWorldRotation(refVector)
 	CANNON:Attack()
 end 
 
 function onShoot (cannon, ball)
-	SFX_SHOOT:Play()
-	VFX_SHOOT:Play()
-
+	local pos 
+	if cannon == CANNON_1 then 
+		pos = CANNON_1:GetWorldPosition()
+	elseif cannon ==  CANNON_2 then 
+		pos = CANNON_2:GetWorldPosition()
+	end 
+	local FXS = World.SpawnAsset(FX_SHOOT,{position = pos})
+	Task.Spawn(function() if Object.IsValid(FXS) then FXS:Destroy() end end,10)
 end
 
 function onImpact (cannon, dataImpact)
@@ -35,10 +46,12 @@ function onImpact (cannon, dataImpact)
 			if strIm == "imp" then 
 				local damageDone = CVS_MNG_API.getDamageShip(strArea)
 				local FX = World.SpawnAsset(FX_IMPACT_SHIP,{position = hit:GetImpactPosition()})
-				local player = cannon.scriptUserData.owner
+				Task.Spawn(function() if Object.IsValid(FX) then FX:Destroy() end end,10)
+				local player = cannon.serverUserData.owner
 				Events.BroadcastToPlayer(cannon.owner,"BannerMessage", "You hit by: "..tostring(damageDone))
 			else 
 			 	local FX = World.SpawnAsset(FX_IMPACT_OTHER,{position = hit:GetImpactPosition()})
+			 	Task.Spawn(function() if Object.IsValid(FX) then FX:Destroy() end end,10)
 			end
 			
 		end
@@ -47,7 +60,8 @@ end
 
 function onResChange (player, resName, resNum)
 	if resName ==  "c_Balls" then 
-		CANNON.currentAmmo = 1
+		CANNON_1.currentAmmo = 1
+		CANNON_2.currentAmmo = 1
 	end 
 end
 
@@ -63,6 +77,10 @@ end
 
 CANNON1_EQ.equippedEvent:Connect(OnEquipped)
 CANNON1_EQ.unequippedEvent:Connect(OnUnequipped)
-CANNON.projectileSpawnedEvent:Connect( onShoot )
-CANNON.targetImpactedEvent:Connect( onImpact )
+CANNON2_EQ.equippedEvent:Connect(OnEquipped)
+CANNON2_EQ.unequippedEvent:Connect(OnUnequipped)
+CANNON_1.projectileSpawnedEvent:Connect( onShoot )
+CANNON_1.targetImpactedEvent:Connect( onImpact )
+CANNON_2.projectileSpawnedEvent:Connect( onShoot )
+CANNON_2.targetImpactedEvent:Connect( onImpact )
 Events.ConnectForPlayer("shoot", onCannonShoot)
