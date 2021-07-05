@@ -6,7 +6,7 @@ local nameGames = {
 
 local tableUI_CGI = {
 						["askGame"] = {message = "You are moving to: ", duration = 3, data = true},
-						["usedTrigger"] = {message = "This slot game is occupied ", duration = 3, data = true},
+						["usedTrigger"] = {message = "Sorry! No slots avaliable in this game... Try later or use spectator cam!", duration = 3, data = true},
 					}
 
 

@@ -1,7 +1,7 @@
-Name: "Cannon"
-RootId: 8393208079355124114
+Name: "Cannon_1"
+RootId: 17281173968427435131
 Objects {
-  Id: 10063792485338170875
+  Id: 4583577636298299178
   Name: "ArtGeo"
   Transform {
     Location {
@@ -14,8 +14,8 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8393208079355124114
-  ChildIds: 17192573910574549175
+  ParentId: 17281173968427435131
+  ChildIds: 8982629970230822035
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -32,7 +32,7 @@ Objects {
   }
 }
 Objects {
-  Id: 17192573910574549175
+  Id: 8982629970230822035
   Name: "Body"
   Transform {
     Location {
@@ -45,10 +45,10 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 10063792485338170875
-  ChildIds: 15854690637858641407
-  ChildIds: 15157535762728163818
-  ChildIds: 10811696060990639133
+  ParentId: 4583577636298299178
+  ChildIds: 12087656344274295722
+  ChildIds: 14370300468163934439
+  ChildIds: 2235281781124563086
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -66,7 +66,7 @@ Objects {
   }
 }
 Objects {
-  Id: 10811696060990639133
+  Id: 2235281781124563086
   Name: "Tube"
   Transform {
     Location {
@@ -79,9 +79,9 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 17192573910574549175
-  ChildIds: 6629059952183201708
-  ChildIds: 14605561696873587804
+  ParentId: 8982629970230822035
+  ChildIds: 12015899448698466681
+  ChildIds: 14954774499780541255
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -99,7 +99,7 @@ Objects {
   }
 }
 Objects {
-  Id: 14605561696873587804
+  Id: 14954774499780541255
   Name: "tube"
   Transform {
     Location {
@@ -113,7 +113,7 @@ Objects {
       Z: 3.21715426
     }
   }
-  ParentId: 10811696060990639133
+  ParentId: 2235281781124563086
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -144,7 +144,7 @@ Objects {
   }
 }
 Objects {
-  Id: 6629059952183201708
+  Id: 12015899448698466681
   Name: "firePoint_reference"
   Transform {
     Location {
@@ -160,8 +160,8 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 10811696060990639133
-  ChildIds: 2029733069140177378
+  ParentId: 2235281781124563086
+  ChildIds: 1803626172215103386
   Collidable_v2 {
     Value: "mc:ecollisionsetting:forceoff"
   }
@@ -179,7 +179,7 @@ Objects {
   }
 }
 Objects {
-  Id: 2029733069140177378
+  Id: 1803626172215103386
   Name: "_Cube"
   Transform {
     Location {
@@ -192,7 +192,7 @@ Objects {
       Z: 0.133856967
     }
   }
-  ParentId: 6629059952183201708
+  ParentId: 12015899448698466681
   UnregisteredParameters {
     Overrides {
       Name: "ma:Shared_BaseMaterial:id"
@@ -231,7 +231,7 @@ Objects {
   }
 }
 Objects {
-  Id: 15157535762728163818
+  Id: 14370300468163934439
   Name: "Cube - Bottom-Aligned"
   Transform {
     Location {
@@ -247,7 +247,7 @@ Objects {
       Z: 0.654863834
     }
   }
-  ParentId: 17192573910574549175
+  ParentId: 8982629970230822035
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -278,7 +278,7 @@ Objects {
   }
 }
 Objects {
-  Id: 15854690637858641407
+  Id: 12087656344274295722
   Name: "Cube"
   Transform {
     Location {
@@ -293,7 +293,7 @@ Objects {
       Z: 0.324881345
     }
   }
-  ParentId: 17192573910574549175
+  ParentId: 8982629970230822035
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -324,7 +324,123 @@ Objects {
   }
 }
 Objects {
-  Id: 11457441203331491990
+  Id: 14029241172868829918
+  Name: "Basic Explosion VFX"
+  Transform {
+    Location {
+      X: 134.696259
+      Y: 0.808136
+      Z: 71.263382
+    }
+    Rotation {
+      Pitch: -48.182
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17281173968427435131
+  UnregisteredParameters {
+    Overrides {
+      Name: "bp:Emissive Boost"
+      Float: 5.47397184
+    }
+    Overrides {
+      Name: "bp:Wind Speed"
+      Vector {
+        Y: 500
+      }
+    }
+    Overrides {
+      Name: "bp:Enable Ring"
+      Bool: false
+    }
+  }
+  WantsNetworking: true
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Blueprint {
+    BlueprintAsset {
+      Id: 14854415296157893948
+    }
+    TeamSettings {
+    }
+    Vfx {
+    }
+  }
+  Relevance {
+    Value: "mc:eproxyrelevance:medium"
+  }
+}
+Objects {
+  Id: 2710114412148181262
+  Name: "shootFX"
+  Transform {
+    Location {
+      X: 131.569473
+      Y: -4.50934601
+      Z: 74.3624344
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17281173968427435131
+  UnregisteredParameters {
+    Overrides {
+      Name: "bp:Type"
+      Enum {
+        Value: "mc:esfx_explosions_standalone:34"
+      }
+    }
+  }
+  WantsNetworking: true
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Blueprint {
+    BlueprintAsset {
+      Id: 13744071918292149447
+    }
+    TeamSettings {
+    }
+    AudioBP {
+      Volume: 1.74910378
+      Falloff: 5000
+      Radius: 1500
+      EnableOcclusion: true
+      IsSpatializationEnabled: true
+      IsAttenuationEnabled: true
+    }
+  }
+}
+Objects {
+  Id: 10093136004244386101
   Name: "cannon"
   Transform {
     Location {
@@ -339,7 +455,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 8393208079355124114
+  ParentId: 17281173968427435131
   WantsNetworking: true
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"

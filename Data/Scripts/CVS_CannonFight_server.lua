@@ -9,39 +9,46 @@ local ROOT = script:GetCustomProperty("rootParent"):WaitForObject()
 local CANNON_1 = script:GetCustomProperty("cannon_1"):WaitForObject()
 local CANNON_2 = script:GetCustomProperty("cannon_2"):WaitForObject()
 
---local
- ARRIVAL_TRIGG_1.serverUserData.used = false
 
-function OnBeginOverlap(trigg, other)	
+function OnBeginOverlap(triggSlot, other)	
 	if other:IsA("Player") then
 		local player = other		
 		Events.BroadcastToPlayer(player,"CNN_playerArr",player, true)
 		Task.Wait()
-		EQUIPMENT_1:Equip(player)	
+		if triggSlot == ARRIVAL_TRIGG_1 then
+			EQUIPMENT_1:Equip(player)	
+		elseif triggSlot == ARRIVAL_TRIGG_2 then 
+			EQUIPMENT_2:Equip(player)
+		end 
+		triggSlot.serverUserData.owner = player
 	end
 end
 
-function OnEndOverlap(trigg, other)
+function OnEndOverlap(triggSlot, other)
 	if other:IsA("Player") then
-		local player = other		
-		Task.Wait()
-		Events.BroadcastToPlayer(player,"CNN_playerArr",player, false)
+		local player = 	triggSlot.serverUserData.owner
+		if player == other then 		
+			Task.Wait()
+			Events.BroadcastToPlayer(player,"CNN_playerArr",player, false)
+			triggSlot.serverUserData.owner = nil
+		end
 	end
 end
 
 
 function OnEquipped(equip, player)
-    if Object.IsValid(ARRIVAL_TRIGG_1) then
-        ARRIVAL_TRIGG_1.serverUserData.used = false
-    end
     print(script.name.." >> "..player.name.." equipped: "..equip.name)
-    script.serverUserData.cannonOwner = player
-    CANNON_1.serverUserData.owner = player
-    player:SetWorldRotation(ARRIVAL_TRIGG_1:GetWorldRotation())
+    if equip == EQUIPMENT_1 then 
+    	CANNON_1.serverUserData.owner = player
+    	player:SetWorldRotation(ARRIVAL_TRIGG_1:GetWorldRotation())
+    elseif equip == EQUIPMENT_2 then 
+    	CANNON_2.serverUserData.owner = player
+    	player:SetWorldRotation(ARRIVAL_TRIGG_2:GetWorldRotation())
+    end 
 	player.isMovementEnabled = false
 	player.movementControlMode = MovementControlMode.NONE
 	
-				-----------------------------
+				------------AMMO unlimited-----------------
 				Task.Spawn(function() 
 					while true do 
 						player:AddResource("c_Balls",1)
@@ -54,23 +61,18 @@ end
 
 function OnUnequipped(equip, player)
 	print("desequipando: ", equip , " a "..player.name)
-    if Object.IsValid(equip) and Object.IsValid(ARRIVAL_TRIGG_1) then
-    	player.isMovementEnabled = true
-		player.movementControlMode = MovementControlMode.LOOK_RELATIVE
-		script.serverUserData.cannonOwner = nil
-		if ARRIVAL_TRIGG_1.serverUserData.id then 
-    		local askTrigger = ARRIVAL_TRIGG_1.serverUserData.id:GetObject()    	
-    		player:SetWorldPosition(askTrigger:GetWorldPosition())
-    	end
-        if ARRIVAL_TRIGG_1:IsCollidableInHierarchy() then
-            Task.Wait(1)
-            if Object.IsValid(ARRIVAL_TRIGG_1) then
-                ARRIVAL_TRIGG.serverUserData.used = false
-            end
-        else
-            
-        end
-    end
+   	 if equip == EQUIPMENT_1 then
+   		CANNON_1.serverUserData.owner = nil
+   		triggSlot = ARRIVAL_TRIGG_1   		
+	elseif equip == EQUIPMENT_2 then	
+		CANNON_2.serverUserData.owner = nil
+   		triggSlot = ARRIVAL_TRIGG_2  
+   	end 
+	triggSlot.serverUserData.used = false
+	player.isMovementEnabled = true
+	player.movementControlMode = MovementControlMode.LOOK_RELATIVE
+	local askTrigger = triggSlot.serverUserData.id:GetObject()    	
+   	player:SetWorldPosition(askTrigger:GetWorldPosition())	 
 end
 
 

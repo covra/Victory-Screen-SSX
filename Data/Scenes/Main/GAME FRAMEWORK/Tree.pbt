@@ -5,8 +5,9 @@ Objects {
   Name: "MNG_CannonFight"
   Transform {
     Location {
-      X: 187.986755
-      Y: 281.810516
+      X: -213.715958
+      Y: -13.6321106
+      Z: 236.805817
     }
     Rotation {
     }
@@ -61,6 +62,12 @@ Objects {
             Value: "mc:ecollisionsetting:forceoff"
           }
         }
+        Overrides {
+          Name: "Position"
+          Vector {
+            Z: -109.943069
+          }
+        }
       }
     }
     ParameterOverrideMap {
@@ -73,9 +80,9 @@ Objects {
         Overrides {
           Name: "Position"
           Vector {
-            X: -187.98674
-            Y: -281.810516
-            Z: 47.5848083
+            X: 229.648483
+            Y: -979.786133
+            Z: 8.52041626
           }
         }
       }

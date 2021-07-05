@@ -9,11 +9,15 @@ _G.MNG = {}
 local ROOT = script.parent
 local ASK_TRIGG = ROOT:GetCustomProperty("askTrigger"):WaitForObject()
 local NAME_FOR = ROOT:GetCustomProperty("nameFor"):WaitForObject()
-local ARRIVAL_TRIGG = NAME_FOR:FindDescendantByName("triggArrival")
+local localSlots = {}
+local ARRIVAL_TRIGG_1 = NAME_FOR:FindDescendantByName("triggArrival_1")
+table.insert(localSlots, {player = nil, slot = ARRIVAL_TRIGG_1})
+local ARRIVAL_TRIGG_2 = NAME_FOR:FindDescendantByName("triggArrival_2")
+table.insert(localSlots, {player = nil, slot = ARRIVAL_TRIGG_2})
 --local
 local isGameModeSpawn = false
 --validation
-if ARRIVAL_TRIGG == nil then 
+if ARRIVAL_TRIGG_1 == nil  or ARRIVAL_TRIGG_2 == nil  then 
 	NAME_FOR = ROOT:GetCustomProperty("spawnedGame") 
 	isGameModeSpawn = true
 	warn(" Arrival trigger not found, check name and/or parent folder reference, maybe is a spawned game?")
@@ -29,25 +33,25 @@ end
 --PLAYER INTERACTS WITH THE TRIGGER TO ASK A GAME
 function OnInteracted(trigg, other)
 	if other:IsA("Player") then
+		local isAssigned = false
 		local player = other
-		if Object.IsValid( ARRIVAL_TRIGG ) then 
-			if not ARRIVAL_TRIGG.serverUserData.used then 
-				player:SetWorldPosition(ARRIVAL_TRIGG:GetWorldPosition())				
-				player.serverUserData.currentGame = NAME_FOR.name
-				ARRIVAL_TRIGG.serverUserData.id = ASK_TRIGG:GetReference()
+		for _,currentSlot in pairs (localSlots)  do 
+			if currentSlot.slot.serverUserData.owned == nil then 
+				currentSlot.player = player
+				currentSlot.slot.serverUserData.id = ASK_TRIGG:GetReference()
+				player:SetWorldPosition(currentSlot.slot:GetWorldPosition())				
+				player.serverUserData.currentGame = NAME_FOR.name				
 				table.insert(_G.MNG, {player, time()})
 				local bannerMessage = CVS_MNG_API.getUI_CGI ("askGame",NAME_FOR.name)
 				Events.BroadcastToPlayer(player, "BannerMessage",bannerMessage.message, bannerMessage.duration)
-			else 
-				local bannerMessage = CVS_MNG_API.getUI_CGI ("usedTrigger",NAME_FOR.name)
-				Events.BroadcastToPlayer(player, "BannerMessage",bannerMessage.message, bannerMessage.duration)
-			end
-		elseif isGameModeSpawn then 
-		
-		else 
-		
-		end
-	end
+				isAssigned = true
+			end 
+		end 
+		if not isAssigned then 
+			local bannerMessage = CVS_MNG_API.getUI_CGI ("usedTrigger",NAME_FOR.name)
+			Events.BroadcastToPlayer(player, "BannerMessage",bannerMessage.message, bannerMessage.duration)	
+		end 
+	end 			
 end
 
 ASK_TRIGG.interactedEvent:Connect(OnInteracted)
