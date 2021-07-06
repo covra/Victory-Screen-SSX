@@ -6,6 +6,9 @@ local CANNON_1 = script:GetCustomProperty("cannon_1"):WaitForObject()
 local CANNON_2 = script:GetCustomProperty("cannon_1"):WaitForObject()
 local CANNON1_EQ = script:GetCustomProperty("cannonEq1"):WaitForObject()
 local CANNON2_EQ = script:GetCustomProperty("cannonEq2"):WaitForObject()
+local SHIP_1 = script:GetCustomProperty("Ship_1"):WaitForObject()
+local SHIP_2 = script:GetCustomProperty("Ship_2"):WaitForObject()
+
 --assets
 local FX_SHOOT = script:GetCustomProperty("CVS_FX_shoot")
 local FX_IMPACT_SHIP = script:GetCustomProperty("CVS_FX_impact_ship")
@@ -45,15 +48,25 @@ function onImpact (cannon, dataImpact)
 			local strArea = string.sub(hit.other.name,5,-1)
 			if strIm == "imp" then 
 				local damageDone = CVS_MNG_API.getDamageShip(strArea)
+				local damagedShip = hit.other.parent.parent		
+										---------------------------test----------------------------------------
+										if damagedShip.serverUserData.Hp == nil then damagedShip.serverUserData.Hp = CVS_MNG_API.getHitPoints()end
+										-------------------------------------------------------------------------
+				damagedShip.serverUserData.Hp = damagedShip.serverUserData.Hp - damageDone 
+				print(script.name.." >> Damage Event:", damagedShip.name, damageDone, damagedShip.serverUserData.Hp)
+				for _,ply in pairs (Game.GetPlayers()) do					
+					Events.BroadcastToPlayer(ply,"shipDamaged", ply,damagedShip:GetReference(), damagedShip.serverUserData.Hp)
+					Task.Wait(0.2)
+				end 				
+				if damagedShip.serverUserData.Hp <= 0 then endActions() end 
 				local FX = World.SpawnAsset(FX_IMPACT_SHIP,{position = hit:GetImpactPosition()})
 				Task.Spawn(function() if Object.IsValid(FX) then FX:Destroy() end end,10)
-				local player = cannon.serverUserData.owner
-				Events.BroadcastToPlayer(cannon.owner,"BannerMessage", "You hit by: "..tostring(damageDone))
+				local player = cannon.serverUserData.owner				
+				Events.BroadcastToPlayer(player,"BannerMessage", "You hit by: "..tostring(damageDone))
 			else 
 			 	local FX = World.SpawnAsset(FX_IMPACT_OTHER,{position = hit:GetImpactPosition()})
 			 	Task.Spawn(function() if Object.IsValid(FX) then FX:Destroy() end end,10)
-			end
-			
+			end			
 		end
 end
 
@@ -74,6 +87,13 @@ function OnUnequipped (equip, player)
 	local listResChan = player.serverUserData.listCannonEq
 	listResChan:Disconnect()
 end
+
+function endActions()
+				for _,ply in pairs (Game.GetPlayers()) do					
+					Events.BroadcastToPlayer(ply,"forceExit", ply)
+					Task.Wait(0.2)
+				end 	
+end 
 
 CANNON1_EQ.equippedEvent:Connect(OnEquipped)
 CANNON1_EQ.unequippedEvent:Connect(OnUnequipped)

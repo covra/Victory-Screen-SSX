@@ -1,7 +1,7 @@
 Name: "Ship1"
 RootId: 17847487207611684861
 Objects {
-  Id: 13728359811690790886
+  Id: 4823544372913158652
   Name: "Ship_1"
   Transform {
     Location {
@@ -10,7 +10,6 @@ Objects {
       Z: -220.386688
     }
     Rotation {
-      Yaw: 179.02243
     }
     Scale {
       X: 1
@@ -20,6 +19,8 @@ Objects {
   }
   ParentId: 17847487207611684861
   ChildIds: 701132294177567069
+  ChildIds: 17098446213406842942
+  WantsNetworking: true
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -27,7 +28,40 @@ Objects {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
   CameraCollidable {
-    Value: "mc:ecollisionsetting:forceoff"
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+    Type: RuntimeStatic
+  }
+}
+Objects {
+  Id: 17098446213406842942
+  Name: "artGeo"
+  Transform {
+    Location {
+      X: 5377.23096
+      Y: -193.555435
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4823544372913158652
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
   }
   EditorIndicatorVisibility {
     Value: "mc:eindicatorvisibility:visiblewhenselected"
@@ -41,10 +75,11 @@ Objects {
   Name: "Collision_Areas"
   Transform {
     Location {
-      X: 186.77652
-      Y: -58.5777283
+      X: -185.749939
+      Y: 61.7558022
     }
     Rotation {
+      Yaw: 179.02243
     }
     Scale {
       X: 1
@@ -52,7 +87,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 13728359811690790886
+  ParentId: 4823544372913158652
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }

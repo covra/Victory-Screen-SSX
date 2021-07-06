@@ -413,7 +413,7 @@ Objects {
       SpreadDecreaseSpeed: 6
       SpreadIncreasePerShot: 2
       SpreadPenaltyPerShot: 1.5
-      SpreadAperture: 5
+      SpreadAperture: 2
       DefaultAbility {
         SelfId: 535840574475553031
       }

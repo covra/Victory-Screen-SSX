@@ -11,7 +11,8 @@ local FIREPOINT_REF_1 = script:GetCustomProperty("firePoint_reference_1"):WaitFo
 local FIREPOINT_REF_2 = script:GetCustomProperty("firePoint_reference_2"):WaitForObject()
 local BODY_1 = script:GetCustomProperty("Body_1"):WaitForObject()
 local BODY_2 = script:GetCustomProperty("Body_2"):WaitForObject()
-local BTN_EXIT = script:GetCustomProperty("btn_exit"):WaitForObject()
+local SHIP_1 = script:GetCustomProperty("Ship_1"):WaitForObject()
+local SHIP_2 = script:GetCustomProperty("Ship_2"):WaitForObject()
 --local
 local CANNON_NUMBER 
 local CANNON_NUMBER_1 = 1
@@ -35,6 +36,10 @@ local isDw2 = false
 local isRg2 = false
 local isLf2 = false
 local debounce2 = false
+--UI
+local PN_YOUR_SHIP = script:GetCustomProperty("Pn_yourShip"):WaitForObject()
+local PN_OTHER_SHIP = script:GetCustomProperty("Pn_otherShip"):WaitForObject()
+local BTN_EXIT = script:GetCustomProperty("btn_exit"):WaitForObject()
 --API
 local VERTICAL_RATIO = CVS_MNG_API.angleRatio("v")
 local HORIZONTAL_RATIO = CVS_MNG_API.angleRatio("h")
@@ -58,6 +63,7 @@ function endActions (player)
 			fadeOut(BTN_EXIT.parent)
 			player:ClearOverrideCamera( CVS_MNG_API.getTimeCamOverride()-1)	
 			cannonOwner1 = nil
+			SHIP_1.clientUserData.owner = nil
 		elseif player == cannonOwner2 then 
 			Events.BroadcastToServer("callExit")
 			listPress1:Disconnect()
@@ -65,6 +71,7 @@ function endActions (player)
 			fadeOut(BTN_EXIT.parent)
 			player:ClearOverrideCamera( CVS_MNG_API.getTimeCamOverride()-1)	
 			cannonOwner2 = nil
+			SHIP_2.clientUserData.owner = nil
 		end 
 	end
 end 
@@ -78,12 +85,14 @@ function OnBeginOverlap(slotTrigg, other)
 			listRelease1 = localPlayer.bindingReleasedEvent:Connect(OnBindingReleased)
 			fadeIn(BTN_EXIT.parent)
 			cannonOwner1 = player
+			SHIP_1.clientUserData.owner = player
 		elseif slotTrigg == ARRIVAL_TRIGG_2 then 
 			player:SetOverrideCamera(CAM_CANNON_2, CVS_MNG_API.getTimeCamOverride())
 			listPress2 = localPlayer.bindingPressedEvent:Connect(OnBindingPressed)
 			listRelease2 = localPlayer.bindingReleasedEvent:Connect(OnBindingReleased)
 			fadeIn(BTN_EXIT.parent)
 			cannonOwner2 = player
+			SHIP_2.clientUserData.owner = player
 		end 
 	end
 end
@@ -251,7 +260,7 @@ function onClickBtn (btn)
 	end
 end
 
-
+Events.Connect("forceExit", endActions)
 ARRIVAL_TRIGG_1.endOverlapEvent:Connect(OnEndOverlap)
 ARRIVAL_TRIGG_1.beginOverlapEvent:Connect(OnBeginOverlap)
 ARRIVAL_TRIGG_2.endOverlapEvent:Connect(OnEndOverlap)

@@ -8,6 +8,27 @@ local ARRIVAL_TRIGG_2 = script:GetCustomProperty("triggArrival_2"):WaitForObject
 local ROOT = script:GetCustomProperty("rootParent"):WaitForObject()
 local CANNON_1 = script:GetCustomProperty("cannon_1"):WaitForObject()
 local CANNON_2 = script:GetCustomProperty("cannon_2"):WaitForObject()
+local SHIP_1 = script:GetCustomProperty("Ship_1"):WaitForObject()
+local SHIP_2 = script:GetCustomProperty("Ship_2"):WaitForObject()
+
+
+function onCallServer (code)
+	if code == "reset" then 
+		resetShips()
+	elseif code == "end" then 
+		endGame()
+	end 
+end 
+
+function resetShips ()
+	SHIP_1.serverUserData.Hp = CVS_MNG_API.getHitPoints()
+	SHIP_2.serverUserData.Hp = CVS_MNG_API.getHitPoints()
+end 
+
+function endGame ()
+	Events.BroadcastToAllPlayers("BannerMessage", "GAME OVER")
+	resetShips()
+end 
 
 
 function OnBeginOverlap(triggSlot, other)	
@@ -47,6 +68,7 @@ function OnEquipped(equip, player)
     end 
 	player.isMovementEnabled = false
 	player.movementControlMode = MovementControlMode.NONE
+	player:SetResource("c_Balls",0)
 	
 				------------AMMO unlimited-----------------
 				Task.Spawn(function() 
@@ -84,6 +106,7 @@ EQUIPMENT_1.equippedEvent:Connect(OnEquipped)
 EQUIPMENT_1.unequippedEvent:Connect(OnUnequipped)
 EQUIPMENT_2.equippedEvent:Connect(OnEquipped)
 EQUIPMENT_2.unequippedEvent:Connect(OnUnequipped)
+Events.Connect("gameActions", onCallServer)
 Events.ConnectForPlayer ("callExit", function(player)  
 		print(script.name.." >> "..player.name.." request exit cannon")
 		local eqPlayer = player:GetEquipment()

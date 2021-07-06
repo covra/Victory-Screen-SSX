@@ -61,8 +61,8 @@ Objects {
   Name: "imp_vela"
   Transform {
     Location {
-      X: -87.3709259
-      Y: -76.1365891
+      X: -161.514832
+      Y: 447.46286
       Z: 267.047485
     }
     Rotation {
@@ -231,8 +231,8 @@ Objects {
   Name: "imp_palo"
   Transform {
     Location {
-      X: 190.218307
-      Y: 301.032166
+      X: 116.074394
+      Y: 824.630554
       Z: 154.581268
     }
     Rotation {

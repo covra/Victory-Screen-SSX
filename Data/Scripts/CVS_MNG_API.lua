@@ -22,14 +22,15 @@ local tableKeyBindings = {
 						}
 						
 local tableImpacts = {
-						["casco"] = 5,
-						["palo"] = 10,
-						["cabina"] = 20,
-						["vela"] = 8,
-						["guia"] = 35,
+						["casco"] = 1,
+						["palo"] = 2,
+						["cabina"] = 5,
+						["vela"] = 2,
+						["guia"] = 15,
 					}
 local camOverrideTime = 3
 local timeShoot = 3
+local shipsHP = 100
 
 local angleRatioMov = {
 						["v"] = Rotation.New(0,3,0),
@@ -73,6 +74,10 @@ end
 function CVS_MNG_API.getDamageShip(strArea)
 	return tableImpacts [strArea]
 end
+
+function CVS_MNG_API.getHitPoints()
+	return shipsHP
+end 
 
 function getNameGame(key)
 	return nameGames [key]
